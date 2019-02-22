@@ -1,0 +1,22 @@
+a {
+    cursor: pointer;
+}
+
+.topbar {
+    top: 0;
+    background-color: #fff;
+    color: #000;
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.14), 0 0 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.topbar__row {
+    max-width: 100%;
+    width: 1250px;
+    margin: 0 auto;
+}
+
+.mdc-drawer--modal {
+    top: 0;
+    background-color: #000;
+}
