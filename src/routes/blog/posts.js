@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import Markup from 'preact-markup';
 import Helmet from 'preact-helmet';
 import Card from 'preact-material-components/Card';
-import { protocol, baseUrl } from '../../constants'
+import { protocol, baseUrl, blogTitle } from '../../constants';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
@@ -21,15 +21,19 @@ export default class Posts extends Component {
 			.then(response => response.json())
 			.then((data) => {
 				let posts = data.map((post) => {
-					console.log(post);
+					const renderExcerpt =  `
+					${post.excerpt.rendered.split(' ').splice(0, 54).join(' ')}...</p>
+					`;
+
 					return (
 						<Card key={post.id}>
-							<Helmet title="This is a test" />
+							<Helmet title={blogTitle} />
 							<div class={style.cardHeader}>
 								<h2 class=" mdc-typography--title"><Markup markup={post.title.rendered} /></h2>
 							</div>
 							<div class={style.cardBody}>
-								<Markup markup={post.excerpt.rendered} type="html" />
+								<Markup markup={renderExcerpt} type="html" />
+								<a href={post.slug} native>Read More</a>
 							</div>
 						</Card>
 					);
@@ -37,7 +41,6 @@ export default class Posts extends Component {
 				this.setState({ loading: false, posts });
 			})
 			.catch(error => {
-				console.log(error)
 				this.setState({ loading: false });
 			});
 	}

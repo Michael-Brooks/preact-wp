@@ -32,7 +32,6 @@ export default class Header extends Component {
 	];
 
 	render(props) {
-		console.log('props', props);
 		return (
 			<div>
 				<TopAppBar class={style.topbar} fixed>

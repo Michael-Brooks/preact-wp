@@ -24,12 +24,12 @@ export default class Post extends Component {
 					console.log(post);
 					return (
 						<Card key={post.id}>
-							<Helmet title="{post.title.rendered}" />
+							<Helmet title={post.title.rendered} />
 							<div class={style.cardHeader}>
-								<h2 class=" mdc-typography--title"><Markup markup={post.title.rendered} /></h2>
+								<h1 class=" mdc-typography--title"><Markup markup={post.title.rendered} /></h1>
 							</div>
 							<div class={style.cardBody}>
-								<Markup markup={post.excerpt.rendered} type="html" />
+								<Markup markup={post.content.rendered} type="html" />
 							</div>
 						</Card>
 					);
@@ -67,7 +67,6 @@ export default class Post extends Component {
 	render() {
 		return (
 			<div class={`${style.blog} page`}>
-				<h1>Blog</h1>
 				{this.loadPosts()}
 			</div>
 		);
