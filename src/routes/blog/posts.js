@@ -17,7 +17,7 @@ export default class Posts extends Component {
 	}
 
 	componentDidMount() {
-		fetch(`${protocol}://${baseUrl}posts`)
+		fetch(`${protocol}://${baseUrl}posts?page=${this.props.page || 1}`)
 			.then(response => response.json())
 			.then((data) => {
 				let posts = data.map((post) => {
@@ -26,14 +26,14 @@ export default class Posts extends Component {
 					`;
 
 					return (
-						<Card key={post.id}>
+						<Card key={post.id} class={style.mdcCard}>
 							<Helmet title={blogTitle} />
 							<div class={style.cardHeader}>
 								<h2 class=" mdc-typography--title"><Markup markup={post.title.rendered} /></h2>
 							</div>
 							<div class={style.cardBody}>
 								<Markup markup={renderExcerpt} type="html" />
-								<a href={post.slug} native>Read More</a>
+								<a href={post.slug}>Read More</a>
 							</div>
 						</Card>
 					);
@@ -67,10 +67,10 @@ export default class Posts extends Component {
 		);
 	}
 
-	render() {
+	render(props) {
 		return (
 			<div class={`${style.blog} page`}>
-				<h1>Blog</h1>
+				<h1>Blog {props.page && ` - Page ${props.page}`}</h1>
 				{this.loadPosts()}
 			</div>
 		);

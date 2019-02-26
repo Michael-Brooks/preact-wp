@@ -29,6 +29,7 @@
     "preact-cli": "^2.0.0"
   },
   "dependencies": {
+    "npm": "^6.8.0",
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
     "preact-helmet": "^4.0.0-alpha-3",

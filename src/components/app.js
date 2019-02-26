@@ -26,6 +26,7 @@ export default class App extends Component {
 					<Home path="/" />
 					<Post path="/:slug" />
 					<Posts path="/blog" />
+					<Posts path="/page/:page" />
 					<NotFound default />
 				</Router>
 			</div>

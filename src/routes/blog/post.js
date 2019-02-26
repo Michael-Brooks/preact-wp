@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import Markup from 'preact-markup';
 import Helmet from 'preact-helmet';
 import Card from 'preact-material-components/Card';
-import { protocol, baseUrl } from '../../constants'
+import { protocol, baseUrl } from '../../constants';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
@@ -17,11 +17,10 @@ export default class Post extends Component {
 	}
 
 	componentDidMount() {
-		fetch(`${protocol}://${baseUrl}posts?slug=` + this.props.slug)
+		fetch(`${protocol}://${baseUrl}posts?slug=${this.props.slug}`)
 			.then(response => response.json())
 			.then((data) => {
 				let posts = data.map((post) => {
-					console.log(post);
 					return (
 						<Card key={post.id}>
 							<Helmet title={post.title.rendered} />
@@ -37,7 +36,6 @@ export default class Post extends Component {
 				this.setState({ loading: false, posts });
 			})
 			.catch(error => {
-				console.log(error)
 				this.setState({ loading: false });
 			});
 	}

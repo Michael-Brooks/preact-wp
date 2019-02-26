@@ -3,6 +3,7 @@ import { route } from 'preact-router';
 import TopAppBar from 'preact-material-components/TopAppBar';
 import Drawer from 'preact-material-components/Drawer';
 import List from 'preact-material-components/List';
+import { appName } from '../../constants';
 import 'preact-material-components/Switch/style.css';
 import 'preact-material-components/Dialog/style.css';
 import 'preact-material-components/Drawer/style.css';
@@ -37,7 +38,7 @@ export default class Header extends Component {
 				<TopAppBar class={style.topbar} fixed>
 					<TopAppBar.Row class={style.topbar__row}>
 						<TopAppBar.Section align-st>
-							<TopAppBar.Title>Michael Brooks</TopAppBar.Title>
+							<TopAppBar.Title>{appName}</TopAppBar.Title>
 						</TopAppBar.Section>
 						<TopAppBar.Section align-start>
 							<TopAppBar.Icon menu onClick={this.openDrawer}>
